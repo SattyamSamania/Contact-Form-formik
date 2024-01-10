@@ -33,12 +33,12 @@ export default function Home() {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.firstName}
-            className="rounded-sm p-2 w-full uppercase "
+            className="rounded-sm p-2 w-full uppercase placeholder-black "
             placeholder="First Name"
           />
           </div>
           <div>
-          <label className="uppercase text-red-400" htmlFor="lastName">
+          <label className="uppercase text-red-400 " htmlFor="lastName">
             Last Name
           </label>
           <input
@@ -46,7 +46,7 @@ export default function Home() {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.lastName}
-            className="rounded-sm p-2 w-full uppercase"
+            className="rounded-sm p-2 w-full uppercase placeholder-black"
             placeholder="Last Name"
           />
           </div>
@@ -60,7 +60,7 @@ export default function Home() {
             type="email"
             onChange={formik.handleChange}
             value={formik.values.email}
-            className="rounded-sm p-2 w-full uppercase"
+            className="rounded-sm p-2 w-full uppercase placeholder-black"
             placeholder="Email"
           />
           </div>
@@ -73,7 +73,7 @@ export default function Home() {
             type="tel"
             onChange={formik.handleChange}
             value={formik.values.phone}
-            className="rounded-sm p-2 w-full uppercase"
+            className="rounded-sm p-2 w-full uppercase placeholder-black"
             placeholder="Phone Number"
           />
           </div>
@@ -86,7 +86,7 @@ export default function Home() {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.city}
-            className="rounded-sm p-2 w-full uppercase"
+            className="rounded-sm p-2 w-full uppercase placeholder-black"
             placeholder="City Name"
           />
           </div>
@@ -99,7 +99,7 @@ export default function Home() {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.message}
-            className="rounded-sm p-2 min-h-32 w-full uppercase"
+            className="rounded-sm p-2 min-h-32 w-full uppercase placeholder-black"
             placeholder="Your Message"
           />
           </div>
