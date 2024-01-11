@@ -1,0 +1,50 @@
+
+
+.section {
+    background-color: rgb(189, 224, 189);
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 5rem;
+}
+
+.head {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.container {
+    display: flex;
+    background-color: azure;
+    margin-top: 12rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+    height: 60vh;
+
+
+}
+
+.contact {
+    padding: 4rem;
+    background-color: green;
+    width: 40%;
+    border-radius: 5px;
+    margin: 1rem;
+    color: azure;
+    min-height: 40vh;
+    
+}
+.contact>div{
+    justify-content: flex-start;
+}
+
+.form{
+    padding: 5rem;
+}
+
+.form>div{
+    flex-direction: column;
+}
+
