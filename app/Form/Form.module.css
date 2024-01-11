@@ -1,0 +1,60 @@
+.main{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 5rem;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.head{
+    z-index: 5;
+   margin: 5rem;
+   display: flex;
+    
+}
+
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background-color: rgba(101, 43, 43, 0.8);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.Info{
+    flex: 1;
+    padding: 4rem;
+    border-radius: 10px;
+    color: azure;
+    height: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.contact{
+    padding: 10px;
+    flex: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Inputs{
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
