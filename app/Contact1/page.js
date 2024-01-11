@@ -30,7 +30,7 @@ const page = () => {
                     <h1 className='font-bold text-2xl'>
                         Get In Touch
                     </h1>
-                    <p className='mt-2'>We'll create high-quality linkable content and build at least 40 high-authority links to each<br/>  asset, paving the way for you to grow yout rankings, improve brand.</p>
+                    <p className='mt-2'>We'll create high-quality linkable content and build at least 40 high-authority links to each  asset, paving the way for you to grow yout rankings, improve brand.</p>
                 </div>
 
                 <div className={styles.container}>
