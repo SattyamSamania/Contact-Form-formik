@@ -28,13 +28,15 @@ const page = () => {
    >
     <Image
     src={Office}
-    layout='fill'
+  layout='fill'
+  objectFit='cover'
+  objectPosition='center'
     alt='Office_Image'
     className='z-[-10]'
     />
     <div className={styles.head}>
         <h1 className='font-semibold text-3xl  '>Fale Connosco
-        <hr/></h1>
+        <div className="bg-transparent w-12 text-center mx-auto  mt-3  border-b text-white  border-blue-600 border-solid border-4"></div>      </h1>
 
     </div>
 
@@ -49,7 +51,7 @@ const page = () => {
                 <p>999</p>
                 <p>435</p>
                 </div>
-                <hr className='w-5 mt-3'/>
+                <div className="bg-transparent w-10 border-4  mt-3  border-b text-white  border-blue-600 border-solid"></div>   
                 </div>
 
 <div>
@@ -57,14 +59,13 @@ const page = () => {
                     MORADA
                 </h2>
 
-<div className='mt-4'>
+<div className='mt-4 '>
                 <p>RUS Joadko Anion Morenica</p>
                 <p>n's 96 104</p>
                 <p>4470-078 moreria-Mais</p>
                 <p>Portugal</p>
 
-                <hr className='w-5 mt-3'/>
-                </div>
+<div className="bg-transparent w-10  mt-3  border-b text-white  border-blue-600 border-solid border-4"></div>                </div>
                 </div>
 
                 
@@ -75,10 +76,16 @@ const page = () => {
         <div className={styles.contact}>
 
             <div className='flex-col'>
-                <div><h1>ENVIE-NOS UMA MENSAGEM</h1></div>
-                <div className={styles.Inputs}>
+                <div><h1 className="text-white mb-3 font-semibold">ENVIE-NOS UMA MENSAGEM</h1>
+                </div>
 
-                    <div className='flex space-x-3 gap-4'><label className=''>Name</label>
+                
+                <div className={styles.Inputs}>
+                
+
+                    <div className='flex  '><label className='bg-transparent w-full border-b text-white  border-blue-600 border-solid'>Name
+                    </label>
+
                     <input
                                         name="firstName"
                                         type="text"
@@ -88,7 +95,9 @@ const page = () => {
                                         placeholder="First Name"
                                     />
                                     </div>
-                                    <div className='flex space-x-3 gap-4'><label className=''>Email</label>
+                                    <div className='flex '><label className='bg-transparent w-full border-b text-white  border-blue-600 border-solid'>Email
+                                    
+                                    </label>
                     <input
                                         name="email"
                                         type="email"
@@ -99,7 +108,7 @@ const page = () => {
                                     />
                                     </div>
 
-                                    <div className='flex space-x-3 gap-4'><label className=''>CITY</label>
+                                    <div className='flex gap-2'><label className='bg-transparent gap-3 w-full border-b text-white  border-blue-600 border-solid'>CITY</label>
                     <input
                                         name="city"
                                         type="text"
@@ -114,6 +123,26 @@ const page = () => {
                                     
 
                 </div>
+
+                <div className='  mt-8 flex-col gap-5 '><label className='uppercase bg-transparent w-full border-b text-white  border-blue-600 border-solid'>message</label></div>
+                <div  className='mt-2'>
+                    <textarea
+                                        name="message"
+                                        type="text"
+                                        onChange={formik.handleChange}
+                                        value={formik.values.message}
+                                        className=" w-full  bg-transparent max-h-[60px] border-b border-black border-solid outline-none uppercase "
+                                        placeholder="YOUR MESSAGE"
+                                    />
+                                    </div>
+
+                                    <div className='flex justify-between mt-3 text-white  '>
+                                        <p>3 + 1 = 8</p>
+                                       <span></span>
+                                          <button className={styles.btn}>Enter</button>
+                                   
+                                  
+                                    </div>
 
                 
 
