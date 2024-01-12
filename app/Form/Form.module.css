@@ -1,28 +1,46 @@
-.main{
+.main
+{
     width: 100%;
     min-height: 100vh;
-    padding-top: 5rem;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-image: url(../../public/Office.jpg);
+    background-size: cover;
 }
 
-.head{
-    z-index: 5;
-   margin: 5rem;
-   display: flex;
-    
+.head
+{
+    width: 100%;
 }
 
-.container{
+.head>div
+{
+    width: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 20px;
+}
+
+.head>div>div
+{
+    height: 5px;
+    width: 100px;
+    background-color: blue;
+}
+
+.container
+{
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     gap: 50px;
     background-color: rgba(101, 43, 43, 0.8);
-    margin: 1rem;
-    margin-top: 5rem;
-    margin-bottom: 0;
     padding: 1rem;
     border-radius: 10px;
     -webkit-border-radius: 20px;
@@ -31,40 +49,96 @@
     -o-border-radius: 20px;
 }
 
-.Info{
+.Info
+{
     flex: 1;
-    padding: 4rem;
+    padding: 2rem;
     border-radius: 10px;
     color: azure;
-    height: 100%;
-justify-content: center;
-    
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
 
-.contact{
-    flex: 2;
-    height: 100%;
-    width: 100%;
-    display: flex;
-justify-content: center;
-
-
+.Info>div>p
+{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 22px;
 }
 
-.Inputs{
+.contact
+{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+    padding: 2rem;
+}
+
+.Inputs
+{
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
+.Inputs>div
+{
+    width: 100%;
+    display: inline-flex;
+}
 
+.Inputs>div>span
+{
+    flex: 1;
+    border-bottom: 1px;
+    border-color: rgb(4, 0, 255);
+    border-style: solid;
+}
 
-.btn{
-    justify-content:center;
+.Inputs>div>input
+{
+    padding: 0 5px;
+    outline: none;
+    flex: 4;
+    background-color: transparent;
+    border-bottom: 1px;
+    border-color: white;
+    border-style: solid;
+}
+
+.numberInput {
+    display: inline-flex;
+    align-items: center;
+}
+.numberInput>span {
+    border-bottom: 1px;
+    border-color: rgb(25, 0, 255);
+    border-style: solid;
+}
+
+.number
+{
+    width: 50px;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px;
+    border-color: white;
+    border-style: solid;
+    padding: 0 5px;
+}
+
+.btn
+{
+    justify-content: center;
     background-color: transparent;
     border-radius: 5px;
     width: 5rem;
