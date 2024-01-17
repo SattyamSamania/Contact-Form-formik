@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
+/* font-family: 'Kelly Slab', sans-serif; */
+
+/* Navbar styling  */
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    z-index: 10;
+    position: fixed;
+    background-color: black;
+}
+
+/* nav links styling */
+.navLinks
+{
+    width: calc(100% - 240px);
+    max-width: 1200px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navLink {
+    text-decoration: none;
+    position: relative;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255); /* Adjust this color as needed */
+    transition: width 0.3s ease-in-out; /* Transition for underline width */
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+    width: 100%; /* Full underline on hover and active */
+}
+
+.mobileNavIcon
+{
+    display: none;
+    color: white;
+    padding-right: 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.navLinks>li
+{
+    font-family: 'Kelly Slab', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out;
+    -ms-transition: transform 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out;
+}
+
+
+
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 8;
+    display: flex;
+    flex-direction: column;
+    background-color: hsla(0, 0%, 14%, 1);
+    border: 1px solid white;
+    border-top: none;
+    width: 150px;
+    z-index: 10;
+}
+
+.dropdownMenu li {
+    padding: 12px;
+}
+
+
+
+
+
+@media screen and (max-width: 800px)
+{
+    .navLinks>li
+    {
+        font-size: 16px;
+    }
+}
+
+/* Mobile Nav Links Styling  */
+.mobileNavLinks
+{
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 40px 0;
+    background-color: hsla(0, 0%, 14%, 1);
+    background-image:
+        radial-gradient(at 40% 20%, hsla(0, 4%, 25%, 1) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(30, 39%, 20%, 0.7) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(0, 3%, 15%, 1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(0, 8%, 10%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(16, 68%, 20%, 1) 0px, transparent 50%);
+    z-index: 8;
+    transform: translateX(0px) translateY(0px);
+    transition: transform 0.5s ease 0s;
+}
+
+.mobileNavLinks>li
+{
+    font-family: 'Kelly Slab', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: white;
+}
+
+@media screen and (max-width: 600px)
+{
+    .navLinks
+    {
+        display: none;
+    }
+
+    .mobileNavIcon
+    {
+        display: block;
+    }
+
+    .mobileNavLinks
+    {
+        display: flex;
+    }
+}
