@@ -28,6 +28,8 @@
 .navLink {
     text-decoration: none;
     position: relative;
+    text-transform: uppercase;
+    color: white;
 }
 
 .navLink::after {
@@ -55,8 +57,9 @@
     z-index: 10;
 }
 
-.navLinks>li
+.navLink
 {
+    margin: 10px;
     font-family: 'Kelly Slab', sans-serif;
     font-size: 20px;
     text-transform: uppercase;
@@ -70,9 +73,6 @@
     -o-transition: transform 0.2s ease-in-out;
 }
 
-
-
-
 .dropdownMenu {
     position: absolute;
     top: 100%;
@@ -82,11 +82,11 @@
     background-color: hsla(0, 0%, 14%, 1);
     border: 1px solid white;
     border-top: none;
-    width: 150px;
+    width: auto;
     z-index: 10;
 }
 
-.dropdownMenu li {
+.dropdownMenu div {
     padding: 12px;
 }
 
@@ -96,7 +96,7 @@
 
 @media screen and (max-width: 800px)
 {
-    .navLinks>li
+    .navLinks>div
     {
         font-size: 16px;
     }

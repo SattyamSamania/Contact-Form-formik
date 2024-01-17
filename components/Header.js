@@ -17,9 +17,6 @@ const Header = () => {
 
     const links = [
         { id: 1, link: "home", href: '/' },
-        { id: 2, link: "About", href: '/' },
-        { id: 3, link: "Service", href: '/' },
-        { id: 4, link: "FormsList", href: '/' },
     ];
 
     // Add dropdown items
@@ -27,13 +24,12 @@ const Header = () => {
         { id: 5, link: "ContactForm1", href: '/Contact1' },
         { id: 6, link: "ContactForm2", href: '/Contact2' },
         { id: 7, link: "Form1", href: '/Form1' },
-        { id: 6, link: "Form2", href: '/Form2' },
-
+        { id: 8, link: "Form2", href: '/Form2' },
     ];
 
     // State to track the active link and dropdown item
-    const [activeLink, setActiveLink] = useState(links.find(link => link.href === pathname)?.id);
-    const [activeDropdown, setActiveDropdown] = useState(null);
+    const [activeLink, setActiveLink] = useState(1);
+    const [activeDropdown, setActiveDropdown] = useState(false);
 
     // Function to handle link click
     const handleLinkClick = (id, href) => {
@@ -44,7 +40,7 @@ const Header = () => {
 
     // Function to handle dropdown item click
     const handleDropdownItemClick = (id, href) => {
-        setActiveDropdown(null);
+        setActiveDropdown(false);
         handleLinkClick(id, href);
     };
 
@@ -58,43 +54,48 @@ const Header = () => {
                     height={60}
                 />
             </Link>
-            <ul className={styles.navLinks}>
-                {links.map(({ id, link, href }) => (
-                    <li key={id}>
-                        <Link href={href}>
-                            <motion.div
-                                className={styles.navLink}
-                                whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
-                                whileTap={{ scale: 0.9 }}
-                                onClick={() => setActiveDropdown(activeDropdown === id ? null : id)}
-                                initial={{ borderBottom: "2px solid transparent" }}
-                                animate={{ borderBottom: (activeLink === id || activeDropdown === id) ? "2px solid white" : "2px solid transparent" }}
-                            >
-                                {link}
-                            </motion.div>
-                        </Link>
-
-                        {/* Dropdown menu */}
-                        {activeDropdown === id  && (
-                            <ul className={styles.dropdownMenu}>
-                                {dropdownItems.map(({ id, link, href }) => (
-                                    <li key={id}>
-                                        <Link href={href}>
-                                            <motion.a
-                                                className={styles.navLink}
-                                                whileTap={{ scale: 0.9 }}
-                                                onClick={() => handleDropdownItemClick(id, href)}
-                                            >
-                                                {link}
-                                            </motion.a>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.navLinks}>
+                <Link href={links[0].href}>
+                    <motion.div
+                        className={styles.navLink}
+                        whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
+                        whileTap={{ scale: 0.9 }}
+                        initial={{ borderBottom: "2px solid transparent" }}
+                        animate={{ borderBottom: (activeLink === 1) ? "2px solid white" : "2px solid transparent" }}
+                    >
+                        {links[0].link}
+                    </motion.div>
+                </Link>
+                <div>
+                    <motion.div
+                        className={styles.navLink}
+                        whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
+                        whileTap={{ scale: 0.9 }}
+                        initial={{ borderBottom: "2px solid transparent" }}
+                        animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
+                        onClick={() => setActiveDropdown(!activeDropdown)}
+                    >
+                        Contact Forms
+                    </motion.div>
+                    {activeDropdown && (
+                        <ul className={styles.dropdownMenu}>
+                            {dropdownItems.map(({ id, link, href }) => (
+                                <li key={id}>
+                                    <Link href={href}>
+                                        <motion.div
+                                            className={styles.navLink}
+                                            whileTap={{ scale: 0.9 }}
+                                            onClick={() => handleDropdownItemClick(id, href)}
+                                        >
+                                            {link}
+                                        </motion.div>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+            </div>
             <span style={{ width: '120px' }} />
             <div onClick={() => setNav(!nav)} className={styles.mobileNavIcon}>
                 {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
@@ -110,13 +111,13 @@ const Header = () => {
                         {links.map(({ id, link, href }) => (
                             <li key={id}>
                                 <Link href={href}>
-                                    <motion.a
+                                    <motion.div
                                         className={styles.navLink}
                                         whileTap={{ scale: 0.9 }}
                                         onClick={() => handleLinkClick(id, href)}
                                     >
                                         {link}
-                                    </motion.a>
+                                    </motion.div>
                                 </Link>
                             </li>
                         ))}
