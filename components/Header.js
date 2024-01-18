@@ -152,7 +152,7 @@ const Header = () => {
                         whileTap={{ scale: 0.9 }}
                         initial={{ borderBottom: "2px solid transparent" }}
                         animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
-                        onClick={() => setActiveDropdown(!activeDropdown)}
+                        // onClick={() => setActiveDropdown(!activeDropdown)}
                     >
                         Contact Forms <FontAwesomeIcon icon={faCaretDown} />
                     </motion.div>

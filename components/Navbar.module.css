@@ -72,6 +72,10 @@
     -ms-transition: transform 0.2s ease-in-out;
     -o-transition: transform 0.2s ease-in-out;
 }
+.desktopNav{
+    position: relative;
+}
+
 
 .dropdownMenu {
     position: absolute;
@@ -118,6 +122,8 @@
     padding: 10px;
     
 }
+
+
 
 .mobileNav{
     position: relative;
