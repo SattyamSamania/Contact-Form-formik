@@ -1,4 +1,4 @@
-#SimpleUI-Kit
+# SimpleUI-Kit
 
 - This repository contains a simple UI Components created using CSS in a Next.js application. Additionally, it incorporates the React Formik library for handling forms efficiently. This project serves as a practice exercise for honing your skills in styling with CSS, working with Next.js, and utilizing the Formik library for form management.
 
