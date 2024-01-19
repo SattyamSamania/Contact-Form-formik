@@ -12,7 +12,7 @@ import Title from '@/public/Title.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCaretDown
-    
+
 } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
@@ -30,12 +30,17 @@ const Header = () => {
         { id: 6, link: "ContactForm2", href: '/Contact2' },
         { id: 7, link: "Form1", href: '/Form1' },
         { id: 8, link: "Form2", href: '/Form2' },
-        { id: 8, link: "Dropdown", href: '/Dropdown' },
-        { id: 8, link: "Dropdown2", href: '/Dropdown2' },
 
-        
+
+
 
     ];
+
+    const dropdownItems2 = [
+        { id: 9, link: "Dropdown", href: '/Dropdown' },
+        { id: 10, link: "Dropdown2", href: '/Dropdown2' },
+
+    ]
 
     // State to track the active link and dropdown item
     const [activeLink, setActiveLink] = useState(1);
@@ -91,40 +96,76 @@ const Header = () => {
                         whileTap={{ scale: 0.9 }}
                         initial={{ borderBottom: "2px solid transparent" }}
                         animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
-                        // onClick={() => setActiveDropdown(!activeDropdown)}
+                    // onClick={() => setActiveDropdown(!activeDropdown)}
                     >
                         Contact Forms <FontAwesomeIcon icon={faCaretDown} />
                     </motion.div>
 
                     {/* dropdown menu  */}
-                
-                        <ul className={styles.dropdownMenu}>
-                            {dropdownItems.map(({ id, link, href }) => (
-                                <li key={id}>
-                                    <Link href={href}>
-                                        <motion.div
-                                            className={styles.navLink}
-                                            whileHover={{ color: 'rgb(126,125,124)' }}
-                                            whileTap={{ scale: 0.9 }}
-                                            onClick={() => handleDropdownItemClick(id, href)}
-                                            
-                                        >
-                                            {link}
-                                        </motion.div>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                
+
+                    <ul className={styles.dropdownMenu}>
+                        {dropdownItems.map(({ id, link, href }) => (
+                            <li key={id}>
+                                <Link href={href}>
+                                    <motion.div
+                                        className={styles.navLink}
+                                        whileHover={{ color: 'rgb(126,125,124)' }}
+                                        whileTap={{ scale: 0.9 }}
+                                        onClick={() => handleDropdownItemClick(id, href)}
+
+                                    >
+                                        {link}
+                                    </motion.div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                </div>
+
+                {/* Dropdown menus  */}
+
+                <div className={styles.desktopNav}>
+                    <motion.div
+                        className={styles.navLink}
+                        whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
+                        whileTap={{ scale: 0.9 }}
+                        initial={{ borderBottom: "2px solid transparent" }}
+                        animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
+                    // onClick={() => setActiveDropdown(!activeDropdown)}
+                    >
+                        Dropdowns <FontAwesomeIcon icon={faCaretDown} />
+                    </motion.div>
+
+                    {/* dropdown menu  */}
+
+                    <ul className={styles.dropdownMenu}>
+                        {dropdownItems2.map(({ id, link, href }) => (
+                            <li key={id}>
+                                <Link href={href}>
+                                    <motion.div
+                                        className={styles.navLink}
+                                        whileHover={{ color: 'rgb(126,125,124)' }}
+                                        whileTap={{ scale: 0.9 }}
+                                        onClick={() => handleDropdownItemClick(id, href)}
+
+                                    >
+                                        {link}
+                                    </motion.div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
                 </div>
             </div>
-            <span style={{ width: '120px' }} />
+            <span style={{ width: '90px' }} />
 
             {/* Mobile Navigation */}
             <div onClick={() => setNav(!nav)} className={styles.mobileNavIcon}>
                 {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
             </div>
-            
+
             <AnimatePresence>
                 {nav && (
                     <motion.ul
@@ -135,50 +176,90 @@ const Header = () => {
                     >
 
                         {/* Mobile Home Link  */}
-                         <Link href={links[0].href}>
-                    <motion.div
-                        className={styles.navLink}
-                        whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
-                        whileTap={{ scale: 0.9 }}
-                        initial={{ borderBottom: "2px solid transparent" }}
-                        animate={{ borderBottom: (activeLink === 1) ? "2px solid white" : "2px solid transparent" }}
-                    >
-                        {links[0].link}
-                    </motion.div>
-                </Link>
+                        <Link href={links[0].href}>
+                            <motion.div
+                                className={styles.navLink}
+                                whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
+                                whileTap={{ scale: 0.9 }}
+                                initial={{ borderBottom: "2px solid transparent" }}
+                                animate={{ borderBottom: (activeLink === 1) ? "2px solid white" : "2px solid transparent" }}
+                            >
+                                {links[0].link}
+                            </motion.div>
+                        </Link>
 
-                {/* Mobile Contact Forms Link */}
-                  <div className={styles.mobileNav}>
-                    <motion.div
-                        className={styles.navLink}
-                        whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
-                        whileTap={{ scale: 0.9 }}
-                        initial={{ borderBottom: "2px solid transparent" }}
-                        animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
-                        // onClick={() => setActiveDropdown(!activeDropdown)}
-                    >
-                        Contact Forms <FontAwesomeIcon icon={faCaretDown} />
-                    </motion.div>
+                        {/* Mobile Contact Forms Link */}
+                        <div className={styles.mobileNav}>
+                            <motion.div
+                                className={styles.navLink}
+                                whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
+                                whileTap={{ scale: 0.9 }}
+                                initial={{ borderBottom: "2px solid transparent" }}
+                                animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
+                            // onClick={() => setActiveDropdown(!activeDropdown)}
+                            >
+                                Contact Forms <FontAwesomeIcon icon={faCaretDown} />
+                            </motion.div>
 
-                    {/* dropdown menu  */}
-                 
-                        <ul className={styles.dropdownMenu2}>
-                            {dropdownItems.map(({ id, link, href }) => (
-                                <li key={id}>
-                                    <Link href={href}>
-                                        <motion.div
-                                            className={styles.navLink}
-                                            whileHover={{   color: 'rgb(126,125,124)'}}
-                                            whileTap={{ scale: 0.9}}
-                                            onClick={() => handleDropdownItemClick(id, href)}
-                                        >
-                                            {link}
-                                        </motion.div>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                </div>
+                            {/* dropdown menu  */}
+
+                            <ul className={styles.dropdownMenu2}>
+                                {dropdownItems.map(({ id, link, href }) => (
+                                    <li key={id}>
+                                        <Link href={href}>
+                                            <motion.div
+                                                className={styles.navLink}
+                                                whileHover={{ color: 'rgb(126,125,124)' }}
+                                                whileTap={{ scale: 0.9 }}
+                                                onClick={() => handleDropdownItemClick(id, href)}
+                                            >
+                                                {link}
+                                            </motion.div>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+
+
+
+
+
+                        </div>
+
+                        {/* Mobile Dropdown Menu  */}
+
+
+                        <div className={styles.mobileNav}>
+                            <motion.div
+                                className={styles.navLink}
+                                whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
+                                whileTap={{ scale: 0.9 }}
+                                initial={{ borderBottom: "2px solid transparent" }}
+                                animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
+                            // onClick={() => setActiveDropdown(!activeDropdown)}
+                            >
+                                Dropdowns <FontAwesomeIcon icon={faCaretDown} />
+                            </motion.div>
+
+                            {/* dropdown menu  */}
+
+                            <ul className={styles.dropdownMenu2}>
+                                {dropdownItems2.map(({ id, link, href }) => (
+                                    <li key={id}>
+                                        <Link href={href}>
+                                            <motion.div
+                                                className={styles.navLink}
+                                                whileHover={{ color: 'rgb(126,125,124)' }}
+                                                whileTap={{ scale: 0.9 }}
+                                                onClick={() => handleDropdownItemClick(id, href)}
+                                            >
+                                                {link}
+                                            </motion.div>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </motion.ul>
                 )}
             </AnimatePresence>
