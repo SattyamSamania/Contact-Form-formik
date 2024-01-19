@@ -18,11 +18,11 @@ const page = () => {
 
   return (
     <main className={styles.body}>
-      <div>
+      <div className={styles.main}>
         <motion.nav
           initial={false}
           animate={isOpen ? 'open' : 'closed'}
-          className="menu"
+          className={styles.menu}
         >
           <motion.button
             className={styles.btn}

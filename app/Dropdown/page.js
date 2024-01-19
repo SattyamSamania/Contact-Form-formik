@@ -11,12 +11,9 @@ const page = () => {
 
 
     <>
-    {/* Dropdown 1 */}
     <section>
    
-    <div className='flex justify-center'>
-      <h1 className='font-bold text-4xl m-5'>Dropdown 1</h1>
-    </div>
+  
     <nav role="navigation" className={styles.primaryNavigation}>
     
     <ul className={styles.navLinks}>
@@ -34,11 +31,7 @@ const page = () => {
     </ul>
   </nav>
 
-  {/* Dropdown 2 */}
 
-  <div className='flex justify-center'>
-      <h1 className='font-bold text-4xl m-5'>Dropdown 2</h1>
-    </div>
   <nav>
 
    
