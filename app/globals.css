@@ -12,7 +12,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-image: url('../public/Office.jpg');
+    background-image: url('../public/HomeBackgroud.avif');
     background-size: cover;
 }
 

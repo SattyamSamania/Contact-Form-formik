@@ -1,0 +1,80 @@
+.body{
+  
+    --black: #000000;
+    --ash-black: #222;
+    --white: #fafafa;
+    --sky: #00ccff;
+    --green: #22dddd;
+    --blue: #1300ff;
+    --dusk: #6600ff;
+    --purple: #9900ff;
+    --pink: #ff0066;
+    --red: #fe0222;
+    --orange: #fd7702;
+    --yellow: #ffbb00;
+  
+    --background: var(--dusk);
+    --accent: var(--white);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--accent);
+  padding-bottom: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+  
+  .menu {
+    filter: drop-shadow(1px 1px 1px #4700b3);
+    width: 100%;
+   
+  
+  }
+
+.navLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--accent);
+  }
+
+
+  .navLinks>li{
+    color: var(--background);
+    display: block;
+    cursor: pointer;
+  }
+
+  .navLinks>li:hover{
+    color: var(--green);
+    background-color: var(--ash-black);
+    border-radius: 5px;
+  }
+
+  .navLinks,
+.navLinks>li {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.btn{
+  background: var(--accent);
+  color: var(--background);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 300px;
+  text-align: left;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
