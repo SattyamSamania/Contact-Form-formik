@@ -1,16 +1,17 @@
 // import Office from '@/public/Office.jpg'
 
-export default function page() {
-
+export default function Page() {
     return (
-        <div className='main'>
-            <div className='m-4 w-[100]'>
-                <h1 className='text-[62px] font-bold '>Simple UI Components </h1>
-                <p className='text-[18px] text-[#f9f9f9] w-[50]'>This Project Contains the Collection of UI Components that I am creating using Next JS and Tailwind with various Libraries.</p>
-                <div className='mt-3'>
-                    <a target="_blank" className='bg-transparent border-[#f9f9f9] rounded border py-[5px] px-[25px] text-[#f9f9f9] border-solid  ' href='https://github.com/SattyamSamania/UI-Components'>Github Link</a>
+        <div className='main '>
+            <div className='m-4 w-full max-w-screen-lg bg-gray-500  text-black'>
+                <h1 className='text-5xl font-bold mb-4'>Simple UI Components </h1>
+                <p className='text-lg mb-4'>This Project Contains the Collection of UI Components that I am creating using Next JS and Tailwind with various Libraries.</p>
+                <div className='mb-4 text-black'>
+                    <a target="_blank" className='bg-transparent border-black rounded border py-2 px-4 text-black border-solid' href='https://github.com/SattyamSamania/UI-Components'>Github Link</a>
                 </div>
             </div>
+            {/* Add your image here */}
+            {/* <img src={Office} alt="Office Image" className="w-full" /> */}
         </div>
     );
 }

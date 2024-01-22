@@ -15,6 +15,8 @@ import {
 
 } from '@fortawesome/free-solid-svg-icons';
 
+import '@fortawesome/fontawesome-svg-core/styles.css'; 
+
 const Header = () => {
     const [nav, setNav] = useState(false);
     const router = useRouter();
@@ -98,7 +100,7 @@ const Header = () => {
                         animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
                     // onClick={() => setActiveDropdown(!activeDropdown)}
                     >
-                        Contact Forms <FontAwesomeIcon icon={faCaretDown} />
+                        Contact Forms <FontAwesomeIcon icon={faCaretDown} fixedWidth size="x" />
                     </motion.div>
 
                     {/* dropdown menu  */}
