@@ -14,13 +14,13 @@ const page = () => {
     <section className={styles.section}>
    
   
-    <nav role="navigation" className={styles.primaryNavigation}>
+    <nav  className={styles.primaryNavigation}>
     
     <ul className={styles.navLinks}>
       <li><a href="#">Home</a></li>
       <li><a href="#">About Us</a></li>
 
-      <li  className='shadow-xl'><a  href="#">Services  <FontAwesomeIcon icon={faCaretDown} /> </a>
+      <li><a  href="#">Services  <FontAwesomeIcon icon={faCaretDown} /> </a>
         <ul className={styles.dropdown}>
           <li><a href="#">Web Design</a></li>
           <li><a href="#">Web Development</a></li>

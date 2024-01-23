@@ -5,19 +5,12 @@
     height: 100vh;
 }
 
-.primaryNavigation {
-    
-  
-}
-
 
 .navLinks{
     position: absolute;
- width: 40%;
-display: flex;
-justify-content: center;
+width: 700px;
     top: 10%;
-    left: 30%;
+    left: 10%;
     border-radius: 10px;
     background-color:hsla(137,100%,50%,1);
 background-image:
@@ -106,4 +99,34 @@ justify-content: center;
 
 
 
+
+@media  (max-width: 600px){
+    .navLinks{
+        width: 200px;
+        left: 30%;
+    }
+    .navLinks>li{
+        text-align: center;
+        width: 100%;
+
+    }
+   
+
+    .dropdown{
+        z-index: 10;
+    }
+    
+}
+
+@media screen and  (min-width: 600px) and  (max-width: 800px){
+
+    .navLinks{
+        width: 500px;
+    }
+
+    .navLinks>li{
+
+        padding: 7px 12px;
+    }
+}
 
