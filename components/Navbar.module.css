@@ -145,7 +145,10 @@
 {
     .navLinks>div
     {
-        font-size: 16px;
+        font-size: 13px;
+    }
+    .navLink{
+        font-size: 15px;
     }
    
 }
