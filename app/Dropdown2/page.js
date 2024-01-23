@@ -15,7 +15,12 @@ const itemVariants = {
 
 const page = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
   return (
     <main className={styles.body}>
       <div className={styles.main}>
@@ -29,7 +34,7 @@ const page = () => {
             whileTap={{ scale: 0.97 }}
             onClick={() => setIsOpen(!isOpen)}
           >
-            Menu
+           {selectedItem || 'Menu'}
             <motion.div
               variants={{
                 open: { rotate: 180 },
@@ -63,19 +68,36 @@ const page = () => {
             }}
             style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
           >
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}>
+            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}
+            onClick={() => handleItemClick('Item 1')}
+            className={selectedItem === 'Item 1' ? styles.selectedItem : ''}
+            >
               Item 1
             </motion.li>
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}>
+            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}
+            
+            onClick={() => handleItemClick('Item 2')}
+            className={selectedItem === 'Item 2' ? styles.selectedItem : ''}
+            >
               Item 2
             </motion.li>
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}>
+            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}
+            
+            onClick={() => handleItemClick('Item 3')}
+            className={selectedItem === 'Item 3' ? styles.selectedItem : ''}
+            >
               Item 3
             </motion.li>
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}>
+            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}
+              onClick={() => handleItemClick('Item 4')}
+              className={selectedItem === 'Item 4' ? styles.selectedItem : ''}
+            >
               Item 4
             </motion.li>
-            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}>
+            <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}
+              onClick={() => handleItemClick('Item 5')}
+              className={selectedItem === 'Item 5' ? styles.selectedItem : ''}
+            >
               Item 5
             </motion.li>
           </motion.ul>
