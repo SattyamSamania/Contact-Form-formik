@@ -41,6 +41,8 @@ const Header = () => {
     const dropdownItems2 = [
         { id: 9, link: "Dropdown", href: '/Dropdown' },
         { id: 10, link: "Dropdown2", href: '/Dropdown2' },
+        { id: 11, link: "Dropdown3", href: '/Dropdown3' },
+
 
     ]
 
@@ -100,7 +102,7 @@ const Header = () => {
                         animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
                     // onClick={() => setActiveDropdown(!activeDropdown)}
                     >
-                        Contact Forms <FontAwesomeIcon icon={faCaretDown} fixedWidth size="x" />
+                        Contact Forms <FontAwesomeIcon icon={faCaretDown}  />
                     </motion.div>
 
                     {/* dropdown menu  */}
