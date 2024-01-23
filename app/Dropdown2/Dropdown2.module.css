@@ -58,6 +58,11 @@
     border-radius: 5px;
   }
 
+  .selectedItem{
+    color: var(--green);
+    background-color: var(--ash-black);
+    border-radius: 5px;
+  }
   .navLinks,
 .navLinks>li {
   list-style: none;
