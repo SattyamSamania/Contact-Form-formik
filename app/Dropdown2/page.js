@@ -20,6 +20,7 @@ const page = () => {
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
+    setIsOpen(false);
   };
   return (
     <main className={styles.body}>
@@ -70,7 +71,7 @@ const page = () => {
           >
             <motion.li variants={itemVariants} whileHover={{ scale: 1.1 }}
             onClick={() => handleItemClick('Item 1')}
-            className={selectedItem === 'Item 1' ? styles.selectedItem : ''}
+            className={selectedItem === 'Item 1' ? `${styles.selectedItem}  ` : ''}
             >
               Item 1
             </motion.li>
