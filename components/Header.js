@@ -10,10 +10,7 @@ import Image from "next/image";
 import styles from './Navbar.module.css';
 import Title from '@/public/Title.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCaretDown
-
-} from '@fortawesome/free-solid-svg-icons';
+import {faCaretDown} from '@fortawesome/free-solid-svg-icons';
 
 import '@fortawesome/fontawesome-svg-core/styles.css'; 
 
