@@ -17,7 +17,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 const Header = () => {
     const [nav, setNav] = useState(false);
     const router = useRouter();
-    const pathname = usePathname() || '/';
+    let pathname = usePathname() || '/';
 
     const links = [
         { id: 1, link: "home", href: '/' },
@@ -44,7 +44,7 @@ const Header = () => {
     ]
 
     // State to track the active link and dropdown item
-    const [activeLink, setActiveLink] = useState(1);
+    const [activeLink, setActiveLink] = useState(null);
     const [activeDropdown, setActiveDropdown] = useState(false);
 
     // Function to handle link click
@@ -83,6 +83,7 @@ const Header = () => {
                         whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
                         whileTap={{ scale: 0.9 }}
                         initial={{ borderBottom: "2px solid transparent" }}
+                        // onClick={() => handleLinkClick(id, href)}
                         animate={{ borderBottom: (activeLink === 1) ? "2px solid white" : "2px solid transparent" }}
                     >
                         {links[0].link}
@@ -96,7 +97,8 @@ const Header = () => {
                         whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
                         whileTap={{ scale: 0.9 }}
                         initial={{ borderBottom: "2px solid transparent" }}
-                        animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
+                        onClick={() => handleLinkClick(id, href)}
+                        animate={{ borderBottom: (activeLink >= 5 && activeLink <= 8) ? "2px solid white" : "2px solid transparent" }}
                     // onClick={() => setActiveDropdown(!activeDropdown)}
                     >
                         Contact Forms <FontAwesomeIcon icon={faCaretDown}  />
@@ -131,8 +133,9 @@ const Header = () => {
                         className={styles.navLink}
                         whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
                         whileTap={{ scale: 0.9 }}
+                        onClick={() => handleLinkClick(id, href)}
                         initial={{ borderBottom: "2px solid transparent" }}
-                        animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
+                        animate={{ borderBottom: (activeLink >= 9 && activeLink <= 11) ? "2px solid white" : "2px solid transparent" }}
                     // onClick={() => setActiveDropdown(!activeDropdown)}
                     >
                         Dropdowns <FontAwesomeIcon icon={faCaretDown} />
@@ -182,6 +185,7 @@ const Header = () => {
                                 className={styles.navLink}
                                 whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
                                 whileTap={{ scale: 0.9 }}
+                                onClick={() => handleLinkClick(id, href)}
                                 initial={{ borderBottom: "2px solid transparent" }}
                                 animate={{ borderBottom: (activeLink === 1) ? "2px solid white" : "2px solid transparent" }}
                             >
@@ -195,6 +199,7 @@ const Header = () => {
                                 className={styles.navLink}
                                 whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
                                 whileTap={{ scale: 0.9 }}
+                                onClick={() => handleLinkClick(id, href)}
                                 initial={{ borderBottom: "2px solid transparent" }}
                                 animate={{ borderBottom: (activeLink === 2) ? "2px solid white" : "2px solid transparent" }}
                             // onClick={() => setActiveDropdown(!activeDropdown)}
