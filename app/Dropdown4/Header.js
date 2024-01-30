@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, createContext, useContext } from "react";
-import { UserContext } from "./page";
+import { UserContext } from "../Context/userContext";
+
 
 export default function Header() {
 

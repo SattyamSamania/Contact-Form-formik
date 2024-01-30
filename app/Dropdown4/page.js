@@ -1,57 +1,33 @@
 'use client'
 
-import React, { useState, useRef, useEffect, createContext } from 'react';
+import React, { useState, useRef, useEffect, createContext, useContext } from 'react';
 import styles from './Dropdown4.module.css';
 import { motion } from 'framer-motion';
-import Header from './Header';
-import Menu from './Menu';
 
-
+import Context from '../Context/Context';
+import { UserContext } from '../Context/userContext';
+import { UserContextProvider } from '../Context/userContext';
 
 //Initialize Context
 
- export const UserContext = createContext();
+
+
+
 
 
 const Page = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [selectedBorder, setSelectedBorder] = useState('black');
-  // const prevSelectedItemRef = useRef(null);
 
+// const value = {selectedItem, selectedBorder, isOpen, setIsOpen, handleItemClick}
 
-  // useEffect(() => {
-   
-  //   prevSelectedItemRef.current = selectedItem;
-  // }, [selectedItem]);
-
-  const handleItemClick = (item) => {
-    setSelectedBorder(selectedItem); 
-    setSelectedItem(item);
-    setIsOpen(false);
-  };
-
-  const value= {
-    selectedBorder, selectedItem, isOpen,
-     setIsOpen, handleItemClick
-  }
 
   return (
-
-    <UserContext.Provider value={value}>
-    <section className={styles.body}>
-      <div className={styles.container} style={{ backgroundColor: selectedItem, borderColor: selectedBorder }}>
-        <div className={styles.heading}>
-         
-
-          <Header/>
-        </div>
-        <Menu/>
-
-      
-      </div>
+<section className={styles.body}>
+    <UserContextProvider  >
+    
+   
+   <Context/>
+    </UserContextProvider>
     </section>
-    </UserContext.Provider>
   );
 };
 

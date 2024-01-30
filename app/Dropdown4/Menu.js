@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styles from './Dropdown4.module.css';
 import { motion } from 'framer-motion';
-import { UserContext } from "./page";
-
+import { UserContext } from '../Context/userContext';
 
 
 const itemVariants = {
