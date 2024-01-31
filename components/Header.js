@@ -42,6 +42,11 @@ const Header = () => {
         { id: 12, link: "Dropdown4", href: '/Dropdown4' },
     ]
 
+    const dropdownItems3 = [
+        { id: 13, link: "Stopwatch", href: '/Stopwatch' },
+        
+    ]
+
     // State to track the active link and dropdown item
     const [activeLink, setActiveLink] = useState(null);
     const [activeDropdown, setActiveDropdown] = useState(false);
@@ -144,6 +149,41 @@ const Header = () => {
 
                     <ul className={styles.dropdownMenu}>
                         {dropdownItems2.map(({ id, link, href }) => (
+                            <li key={id}>
+                                <Link href={href}>
+                                    <motion.div
+                                        className={styles.navLink}
+                                        whileHover={{ color: 'rgb(126,125,124)' }}
+                                        whileTap={{ scale: 0.9 }}
+                                        onClick={() => handleDropdownItemClick(id, href)}
+
+                                    >
+                                        {link}
+                                    </motion.div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                </div>
+
+                <div className={styles.desktopNav}>
+                    <motion.div
+                        className={styles.navLink}
+                        whileHover={{ scale: 1.1, color: 'rgb(126,125,124)' }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => handleLinkClick(id, href)}
+                        initial={{ borderBottom: "2px solid transparent" }}
+                        animate={{ borderBottom: (activeLink >= 9 && activeLink <= 11) ? "2px solid white" : "2px solid transparent" }}
+                    // onClick={() => setActiveDropdown(!activeDropdown)}
+                    >
+                        ReactHooks <FontAwesomeIcon icon={faCaretDown} />
+                    </motion.div>
+
+                    {/* dropdown menu  */}
+
+                    <ul className={styles.dropdownMenu}>
+                        {dropdownItems3.map(({ id, link, href }) => (
                             <li key={id}>
                                 <Link href={href}>
                                     <motion.div
