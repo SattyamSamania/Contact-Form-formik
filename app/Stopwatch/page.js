@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from './AnalogClock.module.css'
 import Stopwatch from "./Stopwatch";
 
-const Clock = () => {
+const page = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -72,4 +72,4 @@ const Clock = () => {
   );
 };
 
-export default Clock;
+export default page;

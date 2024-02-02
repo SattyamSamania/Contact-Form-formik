@@ -1,69 +1,83 @@
-'use client'
-
-import React, { useState, useEffect } from 'react';
-import styles from './AnalogClock.module.css';
+import { useState, useRef } from 'react';
 
 const Stopwatch = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const [lapTimes, setLapTimes] = useState([]);
-  const [lastLapTime, setLastLapTime] = useState(0);
+  const [running, setRunning] = useState(false);
+  const [time, setTime] = useState(0);
+  const [laps, setLaps] = useState([]);
+  const [lapStartTime, setLapStartTime] = useState(0);
+  const intervalRef = useRef();
 
-  function toggle() {
-    setIsActive(!isActive);
-  }
+  const startStopHandler = () => {
+    setRunning(!running);
 
-  function reset() {
-    setSeconds(0);
-    setIsActive(false);
-    setLapTimes([]);
-    setLastLapTime(0);
-  }
-
-  function lap() {
-    const currentTimestamp = new Date().getTime();
-    const lapTime = (currentTimestamp - lastLapTime) / 1000; // in seconds
-
-    setLapTimes([...lapTimes, lapTime]);
-    setLastLapTime(currentTimestamp);
-  }
-
-  useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
+    if (!running) {
+      setLapStartTime(time);
+      intervalRef.current = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
       }, 1000);
-    } else if (!isActive && seconds !== 0) {
-      clearInterval(interval);
+    } else {
+      clearInterval(intervalRef.current);
     }
-    return () => clearInterval(interval);
-  }, [isActive, seconds]);
+  };
+
+  const lapHandler = () => {
+    const lapElapsed = time - lapStartTime;
+    setLaps([...laps, lapElapsed]);
+    setLapStartTime(time);
+  };
+
+  const resetHandler = () => {
+    setRunning(false);
+    clearInterval(intervalRef.current);
+    setTime(0);
+    setLaps([]);
+    setLapStartTime(0);
+  };
 
   return (
-    <div className={styles.btn}>
-      <button onClick={toggle} className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}>
-        {isActive ? 'Pause' : 'Start'}
-      </button>
-      <button onClick={lap} disabled={!isActive} className="button">
-        Lap
-      </button>
-      <button onClick={reset} className="button">
-        Reset
-      </button>
-
-      <div className="time">{seconds}s</div>
-
-      <div className="lapTimes">
-        <h2>Lap Times</h2>
-        <ul>
-          {lapTimes.map((lap, index) => (
-            <li key={index}>{`Lap ${index + 1}: ${lap.toFixed(2)}s`}</li>
-          ))}
-        </ul>
+    <div>
+      <div className="text-4xl font-bold mb-4">{formatTime(time)}</div>
+      <div className="flex space-x-4">
+        <button
+          className="bg-green-500 text-white px-4 py-2 rounded"
+          onClick={startStopHandler}
+        >
+          {running ? 'Stop' : 'Start'}
+        </button>
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={lapHandler}
+          disabled={!running}
+        >
+          Lap
+        </button>
+        <button
+          className="bg-red-500 text-white px-4 py-2 rounded"
+          onClick={resetHandler}
+        >
+          Reset
+        </button>
       </div>
+      {laps.length > 0 && (
+        <div className="mt-4">
+          <h2 className="text-xl font-bold mb-2">Lap Timings</h2>
+          <ul>
+            {laps.map((lap, index) => (
+              <li key={index}>
+                Lap {index + 1}: {formatTime(lap)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
+};
+
+const formatTime = (seconds) => {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 };
 
 export default Stopwatch;
