@@ -4,13 +4,14 @@ import React, { useState, useEffect } from "react";
 import styles from './AnalogClock.module.css'
 import Stopwatch from "./Stopwatch";
 
+
 const page = () => {
-  const [time, setTime] = useState(new Date());
+  const [time1, setTime1] = useState(new Date());
 
   useEffect(() => {
     const timerId = setInterval(() => {
       const currentTime = new Date();
-      setTime(currentTime);
+      setTime1(currentTime);
       // setMilliseconds(currentTime.getMilliseconds());
     }, 100);
 
@@ -22,7 +23,6 @@ const page = () => {
   return (
     <div className={styles.container}>
 
-<Stopwatch/>
 
     <div className={styles.clock}>
 
@@ -30,7 +30,7 @@ const page = () => {
         <div
           className={styles.milli_hand}
           style={{
-            transform: `rotateZ(${(time.getSeconds())}deg)`
+            // transform: `rotateZ(${(time.getSeconds() * 6)}deg)`
           }}
         />
         <span className={styles.sixty}>60</span>
@@ -47,7 +47,7 @@ const page = () => {
       <div
         className={styles.sec_hand}
         style={{
-          transform: `rotateZ(${time.getSeconds() * 6}deg)`
+          // transform: `rotateZ(${time.getSeconds() * 6}deg)`
         }}
       />
 
@@ -67,6 +67,9 @@ const page = () => {
       <span className={styles.ten}>50</span>
       <span className={styles.eleven}>55</span>
     </div>
+
+<Stopwatch/>
+
     </div>
 
   );
