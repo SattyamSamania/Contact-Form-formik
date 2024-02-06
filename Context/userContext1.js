@@ -1,7 +1,5 @@
 import { createContext, useState, useRef, useEffect } from 'react';
 
-
-
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -14,7 +12,6 @@ export const UserContextProvider = ({ children }) => {
 
     const startStopHandler = () => {
         setRunning(!running);
-
         if (!running) {
             setLapStartTime(time);
             intervalRef.current = setInterval(() => {
@@ -39,7 +36,13 @@ export const UserContextProvider = ({ children }) => {
         setLapStartTime(0);
     };
 
-    const formatTime = (seconds) => {
+    const formatTime = () => {
+        const minutes = Math.floor(time / 60);
+        const remainingSeconds = time % 60;
+        return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+    };
+
+    const formatTime1 = (seconds) => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
         return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
@@ -62,9 +65,8 @@ export const UserContextProvider = ({ children }) => {
         };
     }, []);
 
-    const value = { running, time, time1, setTime1, useEffect, resetHandler, lapHandler, lapStartTime, setLapStartTime, setRunning, setTime, setLaps, intervalRef, startStopHandler, laps, formatTime }
+    const value = { running, time, time1, setTime1, useEffect, resetHandler, lapHandler, lapStartTime, setLapStartTime, setRunning, setTime, setLaps, intervalRef, startStopHandler, laps, formatTime, formatTime1 }
     return (
-
         <UserContext.Provider value={value}>
             {children}
         </UserContext.Provider>

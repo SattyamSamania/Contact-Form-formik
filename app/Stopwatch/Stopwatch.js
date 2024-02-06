@@ -1,15 +1,19 @@
 'use client'
 
-import { useState, useRef, useContext } from 'react';
+import { useContext } from 'react';
 import styles from './AnalogClock.module.css'
 import { UserContext } from '@/Context/userContext1';
 
 const Stopwatch = () => {
-  const { running, time, resetHandler, lapHandler, lapStartTime, setLapStartTime, setRunning, setTime, setLaps, intervalRef, startStopHandler, laps, formatTime } = useContext(UserContext);
+  const { 
+    running, resetHandler, lapHandler, 
+    startStopHandler, laps, formatTime, 
+    formatTime1 
+} = useContext(UserContext);
 
   return (
     <div className={styles.digital}>
-      <div className="text-4xl font-bold mb-4 text-center">{formatTime(time)}</div>
+      <div className="text-4xl font-bold mb-4 text-center">{formatTime()}</div>
       <div className="flex space-x-4  justify-center">
         <button
 
@@ -50,7 +54,7 @@ const Stopwatch = () => {
               <li
                 className='text-center font-bold'
                 key={index}>
-                Lap {index + 1}: {formatTime(lap)}
+                Lap {index + 1}: {formatTime1(lap)}
               </li>
             ))}
           </ul>

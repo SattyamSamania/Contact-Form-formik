@@ -5,41 +5,28 @@ import { UserContext } from '@/Context/userContext1'
 import styles from './AnalogClock.module.css'
 
 const AnalogClock = () => {
-    const { time1, setTime1 } = useContext(UserContext)
-
+    const { time, lapStartTime } = useContext(UserContext);
+    // const time2 = new Date()
     return (
-
-
         <div className={styles.clock}>
-
             <div className={styles.milliClock}>
                 <div
                     className={styles.milli_hand}
                     style={{
-                        // transform: `rotateZ(${(time.getSeconds() * 6)}deg)`
+                        transform: `rotateZ(${((time - lapStartTime) % 60 * 6)}deg)`
                     }}
                 />
                 <span className={styles.sixty}>60</span>
-
                 <span className={styles.fifteen}>15</span>
-
                 <span className={styles.thirty}>30</span>
-
                 <span className={styles.fortyFive}>45</span>
-
             </div>
-
-
             <div
                 className={styles.sec_hand}
                 style={{
-                    // transform: `rotateZ(${time.getSeconds() * 6}deg)`
+                    transform: `rotateZ(${time % 60 * 6}deg)`
                 }}
             />
-
-
-
-
             <span className={styles.twelve}>60</span>
             <span className={styles.one}>5</span>
             <span className={styles.two}>10</span>
